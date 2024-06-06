@@ -1,25 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+// 1번 : router를 보내고 -->  2번 받는다 import한다
+
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import heejung from "./libs/routes/router"; //const router를 가져옴
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <RouterProvider router={heejung} />;
 }
 
 export default App;
