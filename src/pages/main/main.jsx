@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import SignInForm from "./_components/sing-in-form";
+import SignUpForm from "./_components/sing-up-form";
 
 // router 입력했음 이번에는 Main컴포넌트를 만든다.
 // 내가 무슨 화면을 보여주고 싶은지 코딩한다.
@@ -11,7 +13,7 @@ sign-up클릭하면 그에 해당하는 글을 보여준다.
 // main컴포넌트를 만든다. --> 그 안에 무엇을 입력?
 const Main = () => {
   // 클릭한 것 변수지정
-  let handClick = "SIGN-IN"; // 임의로 sign-in, hancClick이 sign-in이었다가 sign-up 이면 되잖아.
+  let handClick = "SIGN-UP"; // 임의로 sign-in, hancClick이 sign-in이었다가 sign-up 이면 되잖아.
 
   const ARRAY_LIST = [
     {
@@ -29,12 +31,13 @@ const Main = () => {
   //--> 함수를 만들어서 내가 누르는것을 매개변수로 받아서 handClick에 넣는다.(sign-in 이었따가 sign-up이었다가.)
   const handPress = (tabName) => {
     handClick = tabName;
+    console.log(handClick);
   };
   console.log(handPress);
 
   return (
     <S.Wrapper>
-      <S.Container>
+      <S.Container className={handClick === "SIGN-IN" ? "" : ""}>
         <S.Header>
           {ARRAY_LIST.map((tab) => (
             <S.Tab
@@ -50,6 +53,14 @@ const Main = () => {
         </S.Header>
         {/* 1.signin을 선택하면 sigininform나오게 작성
           -- signinform을 작성해야겠지. */}
+        {/* handClick === "SIGN-IN" 이면 SignInForm을 보여주고 아니면 SignUpForm을 보여줘라 */}
+        {/* {handClick === "SIGN-IN" ? <SignInForm /> : <SignUpForm />} */}
+
+        {handClick === "SIGN-IN" ? (
+          <SignInForm />
+        ) : (
+          <SignUpForm handClick={handClick} />
+        )}
       </S.Container>
     </S.Wrapper>
   );
@@ -62,6 +73,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 2px solid greenyellow;
 `;
 
 const Container = styled.div`
@@ -70,13 +82,24 @@ const Container = styled.div`
   border-radius: 8px;
 `;
 const Header = styled.header`
-  background-color: #f6d7d7;
+  background-color: #ac1212;
   display: flex;
 `;
 const Tab = styled.div`
-  background-color: yellowgreen;
+  width: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  ${(props) => props.$isSelected && "background-color : #ccc5c5"}
+  background-color: #ebf3db;
+
+  ${(props) =>
+    props.$isSelected && "background-color : #890eb6"} // 왜 안변하지?
+
+  &:hover {
+    background-color: red;
+  }
 `;
 
 const S = {
