@@ -27,43 +27,49 @@ export default SelfBtn;
 // 매개변수에 대한 css
 const VariantCSS = {
   primary: css`
-    background-color: lightblue;
-    color: #753b72;
+    background-color: #0a540a;
+    color: #fff;
   `,
   secondary: css`
-    background-color: #0da7a7;
+    background-color: #5ddcf0;
     color: #fff;
   `,
   "primary-text": css`
+    color: #0a540a;
     background-color: transparent;
     outline: none;
   `,
 };
 
+// size에 따라 css가 변경 -> sizeCSS
 const SizeCSS = {
   small: css`
     padding: 16px;
+  `,
+  medium: css`
+    padding: 16px 32px;
   `,
   full: css`
     width: 100%;
     aspect-ratio: 8 / 1; //가로 8 세로 1
   `,
 };
+
+// shape에 따라 css가 변경 -> shapeCSS
 const ShapeCSS = {
   shape: css`
     border-radius: 8px;
   `,
   round: css`
     border-radius: 50%;
-    height: 200px;
   `,
 };
 //Button이라는 태그를 만든다.
 //<S.Button btn_variant={variant} btn_size={size} btn_shape={shape}>
 const Button = styled.button`
   ${(props) => VariantCSS[props.btn_variant]}
-  /* ${(props) => SizeCSS[props.btn_size]} */
-    ${({ size }) => SizeCSS[size]}
+  ${(props) => SizeCSS[props.btn_size]} 
+    /* ${({ size }) => SizeCSS[size]} */
     ${(props) => ShapeCSS[props.btn_shape]}
 `;
 

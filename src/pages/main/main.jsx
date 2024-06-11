@@ -13,7 +13,7 @@ sign-up클릭하면 그에 해당하는 글을 보여준다.
 // main컴포넌트를 만든다. --> 그 안에 무엇을 입력?
 const Main = () => {
   // 클릭한 것 변수지정
-  let handClick = "SIGN-UP"; // 임의로 sign-in, hancClick이 sign-in이었다가 sign-up 이면 되잖아.
+  let handClick = "SIGN-IN"; // 임의로 sign-in, hancClick이 sign-in이었다가 sign-up 이면 되잖아.
 
   const ARRAY_LIST = [
     {
@@ -33,7 +33,7 @@ const Main = () => {
     handClick = tabName;
     console.log(handClick);
   };
-  console.log(handPress);
+  // console.log(handPress);
 
   return (
     <S.Wrapper>
@@ -56,11 +56,7 @@ const Main = () => {
         {/* handClick === "SIGN-IN" 이면 SignInForm을 보여주고 아니면 SignUpForm을 보여줘라 */}
         {/* {handClick === "SIGN-IN" ? <SignInForm /> : <SignUpForm />} */}
 
-        {handClick === "SIGN-IN" ? (
-          <SignInForm />
-        ) : (
-          <SignUpForm handClick={handClick} />
-        )}
+        {handClick === "SIGN-IN" ? <SignInForm /> : <SignUpForm />}
       </S.Container>
     </S.Wrapper>
   );
@@ -82,7 +78,7 @@ const Container = styled.div`
   border-radius: 8px;
 `;
 const Header = styled.header`
-  background-color: #ac1212;
+  /* background-color: #ac1212; */
   display: flex;
 `;
 const Tab = styled.div`
@@ -92,13 +88,15 @@ const Tab = styled.div`
   justify-content: center;
   align-items: center;
 
+  font-size: 32px;
+  padding: 16px;
+  font-weight: bold;
   background-color: #ebf3db;
 
-  ${(props) =>
-    props.$isSelected && "background-color : #890eb6"} // 왜 안변하지?
+  ${(props) => props.$isSelected && "background-color: #5ddcf0;"}
 
   &:hover {
-    background-color: red;
+    background-color: #18ca3f;
   }
 `;
 

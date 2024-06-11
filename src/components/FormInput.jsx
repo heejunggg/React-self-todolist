@@ -29,7 +29,7 @@ const InputSize = {
   30: css`
     width: 100%;
     height: 48px;
-    background-color: #620707;
+    background-color: #d2f9fa;
   `,
 };
 

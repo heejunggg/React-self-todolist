@@ -7,12 +7,18 @@
 
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../pages/main/main";
+import Todo from "../../pages/todo/todo";
+// import { Todo } from "../../pages/todo/_todo";
 
 const router = createBrowserRouter([
   {
     path: "/",
     // element: <div>안녕 희정아 Hello world!</div>,
     element: <Main />,
+  },
+  {
+    path: "/todo/:todoId",
+    element: <Todo />,
   },
 ]);
 export default router;
